@@ -939,7 +939,7 @@ cumulus_container_clusters_template_k8s_15:
   master_flavor: "{{ cumulus_flavor_general_tiny.name }}"
   flavor: "{{ cumulus_flavor_general_small.name }}"
   image: "FedoraAtomic29-20190429"
-  name: "kubernetes-1.15"
+  name: "kubernetes-1.15.0"
   coe: "kubernetes"
   network_driver: "flannel"
   docker_storage_driver: "overlay2"
