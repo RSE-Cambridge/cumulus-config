@@ -18,6 +18,8 @@ cumulus_projects:
   - "{{ cumulus_iris_ccfe }}"
   - "{{ cumulus_iris_ral_dtaas }}"
   - "{{ cumulus_iris_ska }}"
+  - "{{ cumulus_iris_yates_wang }}"
+  - "{{ cumulus_iris_yates_keil }}"
 #  - "{{ cumulus_iris_jhub_da }}"
   - "{{ cumulus_rcp_dev_project }}"
   - "{{ cumulus_demo_project }}"
@@ -96,8 +98,8 @@ cumulus_iris_euclid:
   user_domain: "{{ federated_domain }}"
   quotas:
     instances: -1
-    cores: 1600
-    ram: 10240000 # 1TB
+    cores: 2200
+    ram: -1
     floating_ips: 3
     routers: 3
     ports: 500
@@ -129,7 +131,7 @@ cumulus_iris_gaia_dev:
   user_domain: "{{ federated_domain }}"
   quotas:
     instances: -1
-    cores: 400
+    cores: 486
     ram: -1
     floating_ips: 6
     routers: 4
@@ -145,7 +147,7 @@ cumulus_iris_gaia_test:
   user_domain: "{{ federated_domain }}"
   quotas:
     instances: -1
-    cores: 400
+    cores: 486
     ram: -1
     floating_ips: 6
     routers: 4
@@ -161,7 +163,7 @@ cumulus_iris_gaia_prod:
   user_domain: "{{ federated_domain }}"
   quotas:
     instances: -1
-    cores: 400
+    cores: 486
     ram: -1
     floating_ips: 6
     routers: 4
@@ -347,6 +349,54 @@ cumulus_iris_jhub_da_users:
      roles: "{{ cumulus_user_roles }}"
    - name: "millingworth"
      email: "malcolm.illingworth@gmail.com"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+
+cumulus_iris_yates_wang:
+  name: iris-yates-wang
+  description: "PI: Jeremy Yates, TC: Jianyue Wang. Armforge systems scaling"
+  project_domain: Default
+  users: "{{ cumulus_iris_yates_wang_users }}"
+  user_domain: "{{ federated_domain }}"
+  quotas:
+    instances: -1
+    cores: 32
+    ram: 88064
+    floating_ips: 2
+    routers: 1
+    ports: 20
+    volumes: 10
+cumulus_iris_yates_wang_users: 
+   - name: "jwang"
+     email: "wjl13910@gmail.com"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+   - name: "pfb29@cam.ac.uk"
+     email: "pfb29@cam.ac.uk"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+
+cumulus_iris_yates_keil:
+  name: iris-yates-keil
+  description: "PI: Jeremy Yates, TC: Marcus Keil. Slurm/OpenOnDemand"
+  project_domain: Default
+  users: "{{ cumulus_iris_yates_keil_users }}"
+  user_domain: "{{ federated_domain }}"
+  quotas:
+    instances: -1
+    cores: 32
+    ram: 88064
+    floating_ips: 2
+    routers: 1
+    ports: 20
+    volumes: 10
+cumulus_iris_yates_keil_users:
+   - name: "mkeil"
+     email: "marcusk050291@gmail.com"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+   - name: "pfb29@cam.ac.uk"
+     email: "pfb29@cam.ac.uk"
      password: "{{ federated_user_default_password }}"
      roles: "{{ cumulus_user_roles }}"
 
