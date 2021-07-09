@@ -13,6 +13,7 @@ cumulus_projects:
   - "{{ cumulus_iris_gaia_dev }}"
   - "{{ cumulus_iris_gaia_test }}"
   - "{{ cumulus_iris_gaia_prod }}"
+  - "{{ cumulus_iris_gaia_core }}"
   - "{{ cumulus_iris_vcycle }}"
   - "{{ cumulus_iris_casu }}"
   - "{{ cumulus_iris_ccfe }}"
@@ -193,6 +194,39 @@ cumulus_iris_gaia_users:
      password: "{{ federated_user_default_password }}"
      roles: "{{ cumulus_gaia_roles }}"
 
+cumulus_iris_gaia_core:
+  name: iris-gaia-core
+  description: IRIS@Cambridge Gaia Core Processing
+  project_domain: Default
+  users: "{{ cumulus_iris_gaia_core_users }}"
+  user_domain: "{{ federated_domain }}"
+  quotas:
+    instances: -1
+    cores: 300
+    ram: -1
+    floating_ips: 5
+    routers: 1
+    ports: 500
+    volumes: -1
+    gigabytes: 49152
+cumulus_iris_gaia_core_users:
+   - name: "pfb29@cam.ac.uk"
+     email: "pfb29@cam.ac.uk"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+   - name: "pburgess"
+     email: "pwb30@cam.ac.uk"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+   - name: "nmillar"
+     email: "nrm30@cam.ac.uk"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+   - name: "dcowell"
+     email: "sc267@cam.ac.uk"
+     password: "{{ federated_user_default_password }}"
+     roles: "{{ cumulus_user_roles }}"
+     
 cumulus_iris_vcycle:
   name: iris-vcycle
   description: IRIS@Cambridge vcycle
